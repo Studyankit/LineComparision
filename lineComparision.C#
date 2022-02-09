@@ -4,16 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LineComparisionComputation
+namespace LineComparision
 {
-    public class Program
+    internal class LineComparision
     {
-        //Main method / Entry Point of program
-        static void Main(string[] args)
-        {
-            //Showing welcome message on console
-            Console.WriteLine("Welcome to Line Comparision Computation Program \n");
-            LineComputation.GetLength();  // calling static method of LineComputation class.
-            Console.ReadLine(); 
-        }
+        static void Main(String[] args) { 
+            //For Sirst line co-ordinate (x1,y1) and (x2,y2)
+        Console.WriteLine("Input the value of x1 in x co-ordinate");
+            int x1 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Input the value of y1 co-ordinate");
+            int y1 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Input the value of x2 co-ordinate");
+            int x2 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Input the value of y2 co-ordinate");
+            int y2 = Convert.ToInt32(Console.ReadLine());
+
+		//Calculate length line 1
+            int lengthOfline1 = (int)Math.Sqrt((x2*x2 - x1*x1) + (y2*y2 - y1*y1));
+            Console.WriteLine("Lenth of line is: "+ lengthOfline1);
+		Console.WriteLine("Length of Line 1: "+ lengthOfline1)
+		Console.ReadKey();
+        }  
     }
+}
