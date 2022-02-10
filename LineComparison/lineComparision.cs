@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LineComparision
 {
-    internal class LineComparision
+    internal class Line
     {
-        static void Main(String[] args) { 
+        public static void Start() { 
             //For Sirst line co-ordinate (x1,y1) and (x2,y2)
         Console.WriteLine("Input the value of x1 in x co-ordinate");
             int x1 = Convert.ToInt32(Console.ReadLine());

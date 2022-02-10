@@ -1,0 +1,4 @@
+﻿using LineComparision;
+
+Line.Start();
+
