@@ -4,53 +4,65 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LineComparision
+namespace LineComparisionComputation
 {
-    internal class Line
+    public class LineComputation
     {
-        public static void Start() { 
-            //For Sirst line co-ordinate (x1,y1) and (x2,y2)
-        Console.WriteLine("Input the value of x1 in x co-ordinate");
-            int x1 = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Input the value of y1 co-ordinate");
-            int y1 = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Input the value of x2 co-ordinate");
-            int x2 = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Input the value of y2 co-ordinate");
-            int y2 = Convert.ToInt32(Console.ReadLine());
+        /* UC - 4 Implemented
+         * In this Uc we used OOPs concept of C#
+         * created seperate Class, Methods and constructor to achieve End result..
+         */
+        //Instace Variables.
+        double pointX1, pointY1, pointX2, pointY2;
 
-            //For second line co-ordinate (x3,y3) and (x4,y4)
-            Console.WriteLine("Input the value of x3 in x co-ordinate");
-            int x3 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Input the value of y3 co-ordinate");
-            int y3 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Input the value of x4 co-ordinate");
-            int x4 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Input the value of y4 co-ordinate");
-            int y4 = Convert.ToInt32(Console.ReadLine());
+        //static variable.
+        static double distance1, distance2;
 
-            //Calculate length line 1
-            int lengthOfline1 = (int)Math.Sqrt((x2*x2 - x1*x1) + (y2*y2 - y1*y1));
-            Console.WriteLine("Lenth of line is: "+ lengthOfline1);
+        //Constructor initilalizing values through pass by reference.
+        public LineComputation(double pointX1, double pointY1, double pointX2, double pointY2)
+        {
+            this.pointX1 = pointX1;
+            this.pointY1 = pointY1;
+            this.pointX2 = pointX2;
+            this.pointY2 = pointY2;
+        }
+        // Method to get length of 2 lines.
+        public static void GetLength()
+        {
+            LineComputation d1 = new LineComputation(2.3, 3.4, 1.5, 2.5);
+            distance1 = d1.Length();
+            LineComputation d2 = new LineComputation(3.2, 4.5, 2.4, 4.2);
+            distance2 = d2.Length();
+            Console.WriteLine("Length of Line1: " + distance1);
+            Console.WriteLine("Length of Line2: " + distance2);
+            Equals(distance1, distance2);
+            CompareTo(distance1, distance2);
+        }
+        //Method to compute length of given co-ordinates of geometery..
+        public double Length()
+        {
+            //returning double type value after computation.
+            return Math.Sqrt((pointX2 - pointX1) * (pointX2 - pointX1) + (pointY2 - pointY1) * (pointY2 - pointY1));
+        }
 
-            //Calculate length of line 2
-            int lengthOfline2 = (int)Math.Sqrt((x2*x2 - x1*x1) + (y2*y2 - y1*y1));
-            Console.WriteLine("Lenth of line is: " + lengthOfline2);
-
-            if (lengthOfline1 == lengthOfline2)
-            {
-                Console.WriteLine("Equal");
-            }
-            else if
-                (lengthOfline1 < lengthOfline2)
-            {
-                Console.WriteLine("L1 Lesser than L2");
-            }
+        //method to check Equality of two lines using Equals function.
+        public static void Equals(double d1, double d2)
+        {
+            if (d1.Equals(d2))
+                Console.WriteLine("Line1 and Line2 are Equal");
             else
-                Console.WriteLine("L1 greater than L2");
+                Console.WriteLine("Both lines are not Equal");
+        }
 
-            
-                    Console.ReadKey();
-        }  
+        //method to Compare two lines using compareTo function.
+        public static void CompareTo(double d1, double d2)
+        {
+            if (d1.CompareTo(d2) > 0)
+                Console.WriteLine("Line1 is greater then Line2");
+            if (d1.CompareTo(d2) < 0)
+                Console.WriteLine("Line2 is greater then Line1");
+            if (d1.CompareTo(d2) == 0)
+                Console.WriteLine("Line1 and Line2 are Equal");
+        }
     }
 }
